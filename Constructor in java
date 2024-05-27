@@ -1,0 +1,45 @@
+class A {
+    int x, y, z;
+
+    A() {
+        x = 10;
+        y = 20;
+        z = 60;
+
+    }
+
+    A(int p) {
+        x = y = z = p;
+
+    }
+
+    A(int p, int q, int r) {
+        x = p;
+        y = q;
+        z = r;
+    }
+
+    A(A ob) {
+        x = ob.x;
+        y = ob.y;
+        z = ob.z;
+    }
+
+    void display() {
+        System.out.println("X=" + x + "  Y=" + y + "  Z=" + z);
+    }
+}
+
+class Demo2 {
+
+    public static void main(String a[]) {
+        A ob = new A();
+        ob.display();
+        A ob1 = new A();
+        ob1.display();
+        A ob2 = new A(70, 80, 90);
+        ob2.display();
+        A ob3 = new A(ob2);
+        ob3.display();
+    }
+}
