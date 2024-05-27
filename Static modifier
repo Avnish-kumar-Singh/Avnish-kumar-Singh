@@ -1,0 +1,11 @@
+//Here, disp is static method 
+class Demo5 {
+    static void disp() {
+        System.out.println("HIII..");
+    }
+
+    public static void main(String a[]) {
+        Demo5 ob = new Demo5();
+        ob.disp();
+    }
+}
