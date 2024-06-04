@@ -1,1 +1,26 @@
+import java.util.*;
+import java.util.scanner;
 
+class A {
+	int x,y;
+	void get()
+	{
+	  Scanner sc = new Scanner(System.in);
+	  System.out.println("Enter the value of X and Y:");
+	  x = sc.nextInt();
+	  y = sc.nextInt();
+	}
+void put()
+	{
+	  System.out.println("X="+x+"   Y="+y);
+	}
+}
+class Scan
+	{
+	  public static void main(String a[])
+	{
+	  A ob = new A();
+	  ob.get();
+	  ob.put();
+	}
+	}
