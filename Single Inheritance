@@ -1,0 +1,32 @@
+//SINGLE INHERITANCE 
+import java.io.*;
+class A
+{
+   int x,y;
+   void get_xy()throws IOException
+    {
+       BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+       System.out.println("Enter Any two number:");
+       x=Integer.parseInt(br.readLine());
+       y=Integer.parseInt(br.readLine());
+       disp();
+    }
+     void disp()
+      {
+           System.out.println("X="+x+"   Y="+y);
+      }
+}
+class B extends A
+{
+   B()throws IOException
+  {
+   super.get_xy();
+  }
+}
+class Main
+  {
+     public static void main(String a[])throws IOException
+      {
+         B ob=new B();
+      }
+  }
