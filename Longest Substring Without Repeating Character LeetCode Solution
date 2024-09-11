@@ -1,0 +1,28 @@
+//Program Discription is Out Side of Code 
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int length=0,i=0,j=0;
+        int strLen=s.length();
+        Set<Character> ch=new HashSet<>();
+        while(i<strLen && j<strLen){
+            if(!ch.contains(s.charAt(j))){
+                ch.add(s.charAt(j));
+                j++;
+                length=Math.max(length, j-i);
+            }else{
+                ch.remove(s.charAt(i));
+                i++;
+            }
+        }
+        return length;
+    }
+}
+//ch: This is a HashSet that stores the unique characters in the current substring. Using a HashSet allows for fast lookups and checks to see if a character is already present.
+
+//The while loop continues until both pointers i and j have traversed the string. The goal is to expand and contract the sliding window from i to j to find the longest substring without repeating characters.
+
+//This block checks if the character at position j is not already in the set ch. If it's not, the character is added to the set, and the window is expanded by incrementing j.
+
+//The length of the current valid substring is calculated as j - i, and the maximum length is updated using Math.max(length, j - i).
+
+//if the character at j is already in the set (i.e., a duplicate character is found), the character at i is removed from the set, and the window is contracted by incrementing i. This ensures that the substring remains without duplicates.
