@@ -1,0 +1,23 @@
+class Solution {
+    public String longestPalindrome(String s) {
+        int inti = 0, finl = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int size1 = values(s, i, i);        //This treats the character s[i] as the center of a palindrome. This is for odd-length palindromes (e.g., "aba").
+            int size2 = values(s, i, i + 1);   //This treats the gap between s[i] and s[i+1] as the center, which handles even-length palindromes (e.g., "abba").
+            int size = Math.max(size1, size2); // it is used to get the length of the longer palindrome centered at i.
+            if (size > finl - inti) {         //If the current palindrome size (size) is larger than the previous longest palindrome (finl - inti), we update inti and finl to reflect the new palindrome's start and end indices.
+                inti = i - (size - 1) / 2;  //For odd-length palindromes: inti is adjusted to i - (size - 1) / 2, and finl is adjusted to i + size / 2.
+                finl = i + size / 2;
+            }                            //For even-length palindromes: The same formula works since i + 1 is considered as part of the center.
+        }
+        return s.substring(inti, finl + 1);  //Once the loop finishes, we extract the longest palindrome substring using substring(inti, finl + 1) and return it. The +1 is necessary because the end index in substring is exclusive.
+    }
+
+     int values(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return right - left - 1;
+    }
+}
