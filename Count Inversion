@@ -1,0 +1,16 @@
+public:
+    // Function to count inversions in the array.
+    int inversionCount(vector<int> &arr) {
+        // Your Code Here
+        int n, result=0,i,j;
+        for(i=0;i<n-1;i++){
+            for(j=i+1;j<n;j++){
+                if(arr[i]>arr[j]){
+                    result++;
+                }
+            }
+        }
+       return result; 
+        
+    }
+};
