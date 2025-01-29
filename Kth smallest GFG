@@ -1,0 +1,14 @@
+// User function template for C++
+
+class Solution {
+  public:
+    // arr : given array
+    // k : find kth smallest element and return using this function
+    int kthSmallest(vector<int> &arr, int k) {
+        // code here
+        int n=arr.size();
+        sort(arr.begin(), arr.end());
+        int least=arr[k-1];
+        return least;
+    }
+};
